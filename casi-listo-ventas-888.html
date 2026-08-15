@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¡Casi listo! — Ventas 888</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body style="margin:0">
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     ▼▼▼ COPIA DESDE AQUÍ PARA PEGAR EN GOHIGHLEVEL ▼▼▼
+     (Elemento "Custom JS/HTML" o "Código personalizado")
+     ═══════════════════════════════════════════════════════════════════ -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* ─── Tokens de marca ─── */
+.en888{
+  --cream:#FCFBFA; --navy:#0A2342; --navy-soft:#163A63;
+  --gold:#C9972B; --gold-light:#D9B56B;
+  --red:#C4123F; --red-dark:#A50F35; --bone:#F7F3EE;
+  box-sizing:border-box;
+  font-family:Montserrat,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--navy); background:var(--cream);
+  min-height:100vh; min-height:100svh;
+  display:flex; flex-direction:column; overflow-x:hidden;
+}
+.en888 *,.en888 *::before,.en888 *::after{box-sizing:border-box}
+.en888 :where(p,h1,span,div){margin:0}
+.en888 a{text-decoration:none}
+
+/* ─── Sección principal ─── */
+.en888__main{
+  position:relative; flex:1;
+  display:flex; align-items:center; justify-content:center;
+  padding:clamp(60px,14vw,90px) clamp(22px,6vw,24px);
+  overflow:hidden;
+}
+.en888__watermark{
+  position:absolute;left:50%;top:clamp(60px,9vw,100px);
+  transform:translateX(-50%);
+  font-family:Ubuntu,sans-serif;
+  font-size:clamp(70px,15vw,210px);font-weight:300;line-height:1;
+  letter-spacing:-.03em;color:rgba(201,151,43,.08);
+  white-space:nowrap;user-select:none;pointer-events:none;
+}
+.en888__deco{position:absolute;inset:0;pointer-events:none}
+.en888__deco svg{position:absolute;fill:currentColor}
+.en888__star-lg-l{left:-60px;top:30%;width:clamp(120px,16vw,230px);color:rgba(201,151,43,.16)}
+.en888__star-lg-r{right:-50px;bottom:12%;width:clamp(110px,14vw,200px);color:rgba(201,151,43,.18)}
+.en888__star-sm-l{left:9%;bottom:18%;width:clamp(0px,2.6vw,22px);color:var(--gold);animation:en888-twinkle 5.5s ease-in-out infinite}
+.en888__star-sm-r{right:12%;top:16%;width:clamp(0px,3.2vw,28px);color:var(--gold);animation:en888-twinkle 6.5s ease-in-out .9s infinite}
+
+.en888__card{
+  position:relative;z-index:1;width:100%;max-width:760px;margin:0 auto;
+  text-align:center;animation:en888-rise .6s ease both;
+}
+.en888__logo{display:block;height:clamp(38px,8vw,52px);width:auto;margin:0 auto clamp(30px,8vw,34px)}
+
+/* ─── Badge ─── */
+.en888__badge{
+  display:inline-flex;align-items:center;gap:12px;
+  background:rgba(196,18,63,.08);border:1px solid rgba(196,18,63,.32);
+  color:var(--red);border-radius:999px;padding:11px 24px;
+  font-size:clamp(12px,3vw,14px);font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;margin-bottom:clamp(36px,9vw,40px);
+}
+
+/* ─── Barra de progreso ─── */
+.en888__progress{max-width:560px;margin:0 auto clamp(38px,10vw,44px)}
+.en888__progress-top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+.en888__progress-label{font-size:clamp(11px,2.8vw,12.5px);font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--navy-soft)}
+.en888__progress-pct{font-family:Ubuntu,sans-serif;font-size:clamp(22px,5vw,30px);font-weight:700;color:var(--gold);line-height:1}
+.en888__progress-track{height:14px;border-radius:999px;background:rgba(10,35,66,.08);border:1px solid rgba(201,151,43,.28);overflow:hidden}
+.en888__progress-fill{height:100%;width:87%;border-radius:999px;background:linear-gradient(90deg,var(--gold-light),var(--gold));animation:en888-fill 1.4s cubic-bezier(.22,.9,.3,1) both}
+
+/* ─── Titular ─── */
+.en888__title{
+  font-family:Ubuntu,sans-serif!important;font-weight:300;
+  font-size:clamp(34px,7vw,62px);line-height:1.1;letter-spacing:-.015em;
+  color:var(--navy);margin:0 0 clamp(24px,6vw,28px);text-wrap:balance;
+}
+.en888__title b{font-weight:700}
+.en888__hand{display:inline-block;animation:en888-bob 2s ease-in-out infinite}
+
+.en888__lead{
+  font-size:clamp(16px,3.8vw,19px);line-height:1.7;color:var(--navy-soft);
+  max-width:600px;margin:0 auto clamp(38px,10vw,44px);text-wrap:pretty;
+}
+
+/* ─── Botón ─── */
+.en888__cta{
+  display:inline-block;max-width:100%;
+  font-family:Montserrat,sans-serif;font-size:clamp(14px,3.6vw,17px);
+  font-weight:700;letter-spacing:.13em;text-transform:uppercase;line-height:1.35;
+  color:var(--bone)!important;background:var(--red);
+  padding:clamp(22px,5.5vw,24px) clamp(32px,8vw,56px);
+  border-radius:999px;position:relative;overflow:hidden;
+  animation:en888-pulse 2.6s ease-in-out infinite;
+  transition:transform .25s ease,background .25s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.en888__cta:hover{background:var(--red-dark);transform:translateY(-3px) scale(1.02);text-decoration:none}
+.en888__cta:active{transform:translateY(0) scale(.99)}
+.en888__cta:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.en888__shine{
+  position:absolute;top:0;bottom:0;width:40%;
+  background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.42),rgba(255,255,255,0));
+  animation:en888-shine 3.6s ease-in-out infinite;pointer-events:none;
+}
+.en888__cta-text{position:relative}
+
+.en888__legal{
+  font-size:clamp(11.5px,2.9vw,13px);line-height:1.65;color:rgba(22,58,99,.65);
+  max-width:560px;margin:clamp(28px,7vw,32px) auto 0;text-wrap:pretty;font-weight:700;
+}
+
+/* ─── Footer ─── */
+.en888__footer{background:var(--navy);padding:clamp(44px,10vw,48px) clamp(22px,6vw,24px);text-align:center}
+.en888__footer-mark{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px}
+.en888__rule{height:1px;width:40px;background:rgba(217,181,107,.5)}
+.en888__footer-logo{display:block;height:26px;width:auto}
+.en888__footer p{margin:0 0 8px;font-size:13.5px;line-height:1.6;color:rgba(247,243,238,.6)}
+.en888__footer p+p{margin-bottom:16px}
+.en888__footer a{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light)}
+.en888__footer a:hover{color:var(--bone);text-decoration:underline}
+
+/* ─── Animaciones ─── */
+@keyframes en888-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes en888-twinkle{0%,100%{opacity:.35;transform:scale(.85) rotate(0)}50%{opacity:1;transform:scale(1) rotate(12deg)}}
+@keyframes en888-pulse{0%,100%{box-shadow:0 12px 30px rgba(196,18,63,.3),0 0 0 0 rgba(196,18,63,.42)}50%{box-shadow:0 16px 38px rgba(196,18,63,.4),0 0 0 16px rgba(196,18,63,0)}}
+@keyframes en888-shine{0%{transform:translateX(-140%) skewX(-18deg)}55%,100%{transform:translateX(320%) skewX(-18deg)}}
+@keyframes en888-fill{from{width:0}to{width:87%}}
+@keyframes en888-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+
+/* ─── Responsive ─── */
+@media (max-width:560px){
+  .en888__watermark{display:none}
+  .en888__badge{letter-spacing:.14em;padding:12px 20px}
+  .en888__title{line-height:1.18}
+  .en888__lead{line-height:1.75}
+  .en888__legal{line-height:1.75}
+  .en888__progress-top{margin-bottom:14px}
+  .en888__footer-mark{margin-bottom:26px}
+  .en888__footer p{margin-bottom:10px}
+  .en888__footer p+p{margin-bottom:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  .en888 *{animation:none!important;transition:none!important}
+  .en888__progress-fill{width:87%}
+}
+</style>
+
+<div class="en888">
+  <section class="en888__main">
+
+    <div class="en888__watermark" aria-hidden="true">Casi listo</div>
+
+    <div class="en888__deco" aria-hidden="true">
+      <svg class="en888__star-lg-l" viewBox="0 0 24 24"><path d="M12 0c.9 6.3 4.8 10.2 12 12-7.2 1.8-11.1 5.7-12 12-.9-6.3-4.8-10.2-12-12C7.2 10.2 11.1 6.3 12 0z"/></svg>
+      <svg class="en888__star-lg-r" viewBox="0 0 24 24"><path d="M12 0c.9 6.3 4.8 10.2 12 12-7.2 1.8-11.1 5.7-12 12-.9-6.3-4.8-10.2-12-12C7.2 10.2 11.1 6.3 12 0z"/></svg>
+      <svg class="en888__star-sm-l" viewBox="0 0 24 24"><path d="M12 0c.9 6.3 4.8 10.2 12 12-7.2 1.8-11.1 5.7-12 12-.9-6.3-4.8-10.2-12-12C7.2 10.2 11.1 6.3 12 0z"/></svg>
+      <svg class="en888__star-sm-r" viewBox="0 0 24 24"><path d="M12 0c.9 6.3 4.8 10.2 12 12-7.2 1.8-11.1 5.7-12 12-.9-6.3-4.8-10.2-12-12C7.2 10.2 11.1 6.3 12 0z"/></svg>
+    </div>
+
+    <div class="en888__card">
+
+      <!-- LOGO: sustituye el src por la URL de tu Media Library de GHL -->
+      <img class="en888__logo" alt="Método 8·8·8" width="60" height="43" src="data:image/png;base64,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">
+
+      <div class="en888__badge">⚠ ¡Importante! ⚠</div>
+
+      <div class="en888__progress">
+        <div class="en888__progress-top">
+          <span class="en888__progress-label">Tu registro</span>
+          <span class="en888__progress-pct">87%</span>
+        </div>
+        <div class="en888__progress-track" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de tu registro">
+          <div class="en888__progress-fill"></div>
+        </div>
+      </div>
+
+      <h1 class="en888__title">Falta solo un<br><b>paso más!</b> <span class="en888__hand" aria-hidden="true">👇</span></h1>
+
+      <p class="en888__lead">¡Para asegurar tu cupo debes tocar el siguiente botón, y podrás completar tu registro!</p>
+
+      <a class="en888__cta" id="cta-888-gracias" href="https://api.whatsapp.com/send?phone=5218121902694&amp;text=Hola%20Mar%C3%ADa%2C%20quiero%20asegurar%20mi%20cupo%20en%20VENTAS%20MAGN%C3%89TICAS%20DESDE%20EL%20ALMA" data-evento="asegurar_cupo_888">
+        <span class="en888__shine" aria-hidden="true"></span>
+        <span class="en888__cta-text">¡Asegurar mi cupo!</span>
+      </a>
+
+      <p class="en888__legal">*Al tocar el botón, nos autorizas a que Energía Nutritiva te mande recordatorios de clases, contenido de valor, promociones y te contacte a través de este canal.</p>
+    </div>
+
+  </section>
+
+  <footer class="en888__footer">
+    <div class="en888__footer-mark">
+      <span class="en888__rule"></span>
+      <img class="en888__footer-logo" alt="Método 8·8·8" width="60" height="43" src="data:image/png;base64,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">
+      <span class="en888__rule"></span>
+    </div>
+    <p>© 2025 | Todos los derechos reservados.</p>
+    <p>Un producto de alta calidad publicado por ENERGIA NUTRITIVA.</p>
+    <a href="https://www.mariamontemayor.com/aviso-de-privacidad-integral" target="_blank" rel="noopener">Aviso de Privacidad</a>
+  </footer>
+</div>
+
+<script>
+(function(){
+  /* ══════════════════════════════════════════════════════════
+     ENLACE ÚNICO — se arma aquí y se aplica al mismo tiempo
+     al botón y a la redirección automática.
+     ══════════════════════════════════════════════════════════ */
+  var telefono = "5218121902694";
+  var mensajeBase = "Hola María, quiero asegurar mi cupo en VENTAS MAGNÉTICAS DESDE EL ALMA";
+
+  /* Si el registro guardó nombre/correo, se añaden al final del mensaje.
+     Para mandar SIEMPRE el mensaje limpio, cambia esta línea a: false */
+  var PERSONALIZAR = true;
+
+  var nombre = sessionStorage.getItem('reg_nombre') || '';
+  var correo = sessionStorage.getItem('reg_correo') || '';
+
+  var mensaje = mensajeBase;
+  if (PERSONALIZAR && (nombre || correo)){
+    mensaje += ".";
+    if (nombre) mensaje += " Mi nombre es " + nombre;
+    if (correo) mensaje += (nombre ? "," : "") + " mi correo es " + correo;
+  }
+
+  var ENLACE = "https://api.whatsapp.com/send?phone=" + telefono + "&text=" + encodeURIComponent(mensaje);
+  var SEGUNDOS = 10;
+
+  var botones = document.querySelectorAll(".en888__cta");
+  for (var i = 0; i < botones.length; i++) botones[i].href = ENLACE;
+
+  var restantes = SEGUNDOS;
+  var timer = null;
+  var cancelado = false;
+
+  function detener(){ if (timer){ clearInterval(timer); timer = null; } }
+
+  function tic(){
+    if (document.hidden) return;
+    restantes--;
+    if (restantes <= 0){
+      detener();
+      cancelado = true;
+      window.location.replace(ENLACE);
+    }
+  }
+
+  function arrancar(){ if (!cancelado && !timer) timer = setInterval(tic, 1000); }
+
+  /* Si toca el botón, se cancela el contador: ya va en camino */
+  for (var j = 0; j < botones.length; j++){
+    botones[j].addEventListener("click", function(){
+      cancelado = true;
+      detener();
+    });
+  }
+
+  /* Pausa mientras la pestaña está en segundo plano */
+  document.addEventListener("visibilitychange", function(){
+    if (document.hidden) detener(); else arrancar();
+  });
+
+  /* Si regresa con el botón "atrás", no la reenviamos en bucle */
+  window.addEventListener("pageshow", function(e){
+    if (e.persisted){ cancelado = true; detener(); }
+  });
+
+  arrancar();
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     ▲▲▲ HASTA AQUÍ ▲▲▲
+     ═══════════════════════════════════════════════════════════════════ -->
+
+</body>
+</html>
