@@ -10,7 +10,7 @@
 <body style="margin:0">
 
 <!-- ═══════════════════════════════════════════════════════════════════
-     ▼▼▼ COPIA DESDE AQUÍ PARA PEGAR EN GOHIGHLEVEL ▼▼▼
+     ▼▼▼  COPIA DESDE AQUÍ PARA PEGAR EN GOHIGHLEVEL  ▼▼▼
      (Elemento "Custom JS/HTML" o "Código personalizado")
      ═══════════════════════════════════════════════════════════════════ -->
 
@@ -19,14 +19,24 @@
 
 /* ─── Tokens de marca ─── */
 .en888{
-  --cream:#FCFBFA; --navy:#0A2342; --navy-soft:#163A63;
-  --gold:#C9972B; --gold-light:#D9B56B;
-  --red:#C4123F; --red-dark:#A50F35; --bone:#F7F3EE;
+  --cream:#FCFBFA;
+  --navy:#0A2342;
+  --navy-soft:#163A63;
+  --gold:#C9972B;
+  --gold-light:#D9B56B;
+  --red:#C4123F;
+  --red-dark:#A50F35;
+  --bone:#F7F3EE;
+
   box-sizing:border-box;
   font-family:Montserrat,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  color:var(--navy); background:var(--cream);
-  min-height:100vh; min-height:100svh;
-  display:flex; flex-direction:column; overflow-x:hidden;
+  color:var(--navy);
+  background:var(--cream);
+  min-height:100vh;
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+  overflow-x:hidden;
 }
 .en888 *,.en888 *::before,.en888 *::after{box-sizing:border-box}
 .en888 :where(p,h1,span,div){margin:0}
@@ -34,8 +44,11 @@
 
 /* ─── Sección principal ─── */
 .en888__main{
-  position:relative; flex:1;
-  display:flex; align-items:center; justify-content:center;
+  position:relative;
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   padding:clamp(60px,14vw,90px) clamp(22px,6vw,24px);
   overflow:hidden;
 }
@@ -155,6 +168,7 @@
 </style>
 
 <div class="en888">
+
   <section class="en888__main">
 
     <div class="en888__watermark" aria-hidden="true">Casi listo</div>
@@ -194,7 +208,6 @@
 
       <p class="en888__legal">*Al tocar el botón, nos autorizas a que Energía Nutritiva te mande recordatorios de clases, contenido de valor, promociones y te contacte a través de este canal.</p>
     </div>
-
   </section>
 
   <footer class="en888__footer">
@@ -212,34 +225,18 @@
 <script>
 (function(){
   /* ══════════════════════════════════════════════════════════
-     ENLACE ÚNICO — se arma aquí y se aplica al mismo tiempo
-     al botón y a la redirección automática.
+     ENLACE ÚNICO — el mismo para el botón y para la
+     redirección automática. Para cambiarlo, solo edita
+     esta línea y se actualizan los dos al mismo tiempo.
      ══════════════════════════════════════════════════════════ */
-  var telefono = "5218121902694";
-  var mensajeBase = "Hola María, quiero asegurar mi cupo en VENTAS MAGNÉTICAS DESDE EL ALMA";
-
-  /* Si el registro guardó nombre/correo, se añaden al final del mensaje.
-     Para mandar SIEMPRE el mensaje limpio, cambia esta línea a: false */
-  var PERSONALIZAR = true;
-
-  var nombre = sessionStorage.getItem('reg_nombre') || '';
-  var correo = sessionStorage.getItem('reg_correo') || '';
-
-  var mensaje = mensajeBase;
-  if (PERSONALIZAR && (nombre || correo)){
-    mensaje += ".";
-    if (nombre) mensaje += " Mi nombre es " + nombre;
-    if (correo) mensaje += (nombre ? "," : "") + " mi correo es " + correo;
-  }
-
-  var ENLACE = "https://api.whatsapp.com/send?phone=" + telefono + "&text=" + encodeURIComponent(mensaje);
+  var ENLACE   = "https://api.whatsapp.com/send?phone=5218121902694&text=Hola%20Mar%C3%ADa%2C%20quiero%20asegurar%20mi%20cupo%20en%20VENTAS%20MAGN%C3%89TICAS%20DESDE%20EL%20ALMA";
   var SEGUNDOS = 10;
 
   var botones = document.querySelectorAll(".en888__cta");
   for (var i = 0; i < botones.length; i++) botones[i].href = ENLACE;
 
   var restantes = SEGUNDOS;
-  var timer = null;
+  var timer     = null;
   var cancelado = false;
 
   function detener(){ if (timer){ clearInterval(timer); timer = null; } }
@@ -247,21 +244,14 @@
   function tic(){
     if (document.hidden) return;
     restantes--;
-    if (restantes <= 0){
-      detener();
-      cancelado = true;
-      window.location.replace(ENLACE);
-    }
+    if (restantes <= 0){ detener(); cancelado = true; window.location.replace(ENLACE); }
   }
 
   function arrancar(){ if (!cancelado && !timer) timer = setInterval(tic, 1000); }
 
   /* Si toca el botón, se cancela el contador: ya va en camino */
   for (var j = 0; j < botones.length; j++){
-    botones[j].addEventListener("click", function(){
-      cancelado = true;
-      detener();
-    });
+    botones[j].addEventListener("click", function(){ cancelado = true; detener(); });
   }
 
   /* Pausa mientras la pestaña está en segundo plano */
@@ -279,7 +269,7 @@
 </script>
 
 <!-- ═══════════════════════════════════════════════════════════════════
-     ▲▲▲ HASTA AQUÍ ▲▲▲
+     ▲▲▲  HASTA AQUÍ  ▲▲▲
      ═══════════════════════════════════════════════════════════════════ -->
 
 </body>
